@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博客发表文章</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url("1.jsp");
+            background-size: cover;
+        }
+
+        header {
+            width: 100%;
+            height: auto;
+            background: #ccc;
+        }
+
+        header .nav {
+            width: auto;
+            height: 50px;
+            background: #ccc;
+        }
+
+        header .nav span {
+            float: right;
+            line-height: 50px;
+            margin-left: 80px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        header .nav span.span_ {
+            margin-right: 5px;
+        }
+
+        .jiantou {
+            width: 0;
+            height: 0;
+            border-left: 10px solid #ccc;
+            border-right: 10px solid #ccc;
+            border-bottom: 10px solid white;
+            float: right;
+            margin-right: 285px;
+            margin-top: 20px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .jiaotou_2 {
+            width: 0;
+            height: 0;
+            border-left: 10px solid #ccc;
+            border-right: 10px solid #ccc;
+            border-top: 10px solid white;
+            float: right;
+            margin-right: 285px;
+            margin-top: 20px;
+            display: none;
+            cursor: pointer;
+        }
+
+        .list_ ul {
+            width: 100px;
+            height: auto;
+            list-style-type: none;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background: #e6af12bf;
+            display: none;
+            position: absolute;
+            right: 13%;
+        }
+
+        .list_ ul li {
+            text-align: center;
+            border-bottom: 2px solid white;
+            margin-bottom: 3px;
+            border-top: 2px solid white;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .conster {
+            width: 100%;
+            height: auto;
+        }
+
+        .conster .inner {
+            width: 1000px;
+            height: auto;
+            margin: 150px auto;
+        }
+
+        .conster .inner .fz_ {
+            background: #ccc;
+            margin-bottom: 3px;
+            border: 2px solid #333;
+        }
+
+        .conster .inner .fz_ .p1 {
+            border-bottom: 2px solid #333;
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        .conster .inner .fz_ .p1 #p1_span1 {
+            margin-left: 10px;
+        }
+
+        .conster .inner .fz_ .p1 #p1_span2 {
+            float: right;
+            margin-right: 20px;
+        }
+
+        .conster .inner .fz_ .p2 {
+            font-size: 30px;
+            margin-left: 5px;
+            height: 300px;
+            color: white;
+        }
+
+        #login {
+            z-index: 999;
+            display: none;
+            width: 600px;
+            height: 500px;
+            border: 1px solid #ccc;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+        }
+
+        #login h3 {
+            border-bottom: 1px solid #ccc;
+            background: #eee;
+            font-weight: normal;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            height: 50px;
+        }
+
+        #login h3 span {
+            cursor: pointer;
+            font-size: 20px;
+            float: right;
+            position: relative;
+            right: 10px;
+        }
+
+        #inner {
+            z-index: 1;
+            display: none;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            background: #000;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #log_op {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        #log_op input {
+            height: 20px;
+        }
+
+        #obut_ {
+            font-size: 20px;
+            padding: 6px;
+            margin: 50px 42% 10px;
+        }
+
+        #div_huanfu {
+            z-index: 10;
+            display: none;
+            width: 600px;
+            height: 750px;
+            border: 1px solid #ccc;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0; 
+            /* left: 35%;
+            top: 15%;   */
+            background: white;
+        }
+
+        #div_huanfu ul {
+            list-style-type: none;
+            float: left;
+            margin-left: 30px;
+        }
+
+        #div_huanfu ul li {
+            margin: 10px;
+            float: left;
+            width: 240px;
+            height: 300px;
+            border: 2px solid #ccc;
+        }
+
+        #div_huanfu ul li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #div_huanfu #Er_GuanBi {
+            clear: both;
+            width: 100px;
+            height: 50px;
+            font-size: 28px;
+            line-height: 50px;
+            border: 2px solid black;
+            cursor: pointer;
+            float: right;
+            text-align: center; 
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <b class="jiantou"></b>
+            <b class="jiaotou_2"></b>
+            <span class="span_">个人中心</span>
+            <span>注册</span>
+            <span>登录</span>
+        </div>
+    </header>
+    <div class="list_">
+        <ul>
+            <li id="ul_li_fb">发表</li>
+            <li id="HuanFu">换肤</li>
+            <li>退出</li>
+        </ul>
+    </div>
+
+    <div id="login">
+        <h3>博文内容 <span id="close">关闭</span></h3>
+        <div style="margin-left: 10px;">
+            <p id="log_op">标题：<input id="log_op_text" type="text" value=""><span
+                    style="font-size: 15px;">（*内容不可为空）</span></p>
+            <p id="log_op">
+                <span style="float:left;">内容：</span>
+                <textarea id="log_op_textarea" style="width: 330px;height: 280px;"></textarea>
+                <!-- <input type="text" name="" id="log_op_textarea" value=""> -->
+                <span style="float: right;margin-right: 60px;font-size: 15px;">（*内容不可为空）</span>
+            </p>
+            <button id="obut_">发表</button>
+        </div>
+    </div>
+    <div id="div_huanfu">
+        <p id="Er_GuanBi">关闭</p>
+        <ul>
+            <li><img class="ul-li_img" src="1.jsp" alt=""></li>
+            <li><img class="ul-li_img" src="2.jsp" alt=""></li>
+            <li><img class="ul-li_img" src="3.jsp" alt=""></li>
+            <li><img class="ul-li_img" src="4.jsp" alt=""></li>
+        </ul>
+    </div>
+    <div id="inner"></div>
+    <div class="conster">
+        <div class="inner">
+            <div class="fz_">
+                <p class="p1">
+                    <span id="p1_span1">我的天哪</span>
+                    <span id="p1_span2">--/--/-- -- --：--：--</span>
+                </p>
+                <p class="p2" id="p2_nr">
+                    写点啥啊 不知道哇 ‘’‘’‘’‘’‘’‘’‘’
+                </p>
+            </div>
+        </div>
+</body>
+
+</html>
+<script src="FaBiao.js"></script>
+<script src="HFCookie.js"></script>
+<script src="HuanFu.js"></script>
+<script src="TuoZhuai.js"></script>
