@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>改变图片的路径</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="imgSrc" value="">
+        <input type="button" id="btn" value="改变图片">
+    </form>
+    <img id="pic" src="img/1.jpg" alt="">
+    <div id="oop"></div>
+</body>
+
+</html>
+
+<script>
+    var otext = document.getElementById("imgSrc");
+    var obtn = document.getElementById("btn");
+    var opic = document.getElementById("pic");
+    var ooop = document.getElementById("oop");
+    obtn.onclick = function () {
+        var dz = "img/" + otext.value + ".jpg";
+        opic.src = dz;
+        // ooop.innerHTML = dz;
+        otext.value = "";
+    }
+
+</script>

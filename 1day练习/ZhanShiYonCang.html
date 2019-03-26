@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html,
+        body,
+        div,
+        ul,
+        li,
+        a {
+            margin: 0;
+            padding: 0;
+        }
+        .btn{
+            margin: 0 auto;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            width: 380px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+
+        ul li {
+            line-height: 33px;
+            padding-left: 20px;
+            border: 1px solid #ccc;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn"> 展示 | 隐藏 </div>
+    <hr>
+    <ul>
+        <li><a href="javascript:;">玩家之徒 - 蔡依林</a></li>
+        <li><a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a></li>
+        <li><a href="javascript:;">猜不透 - 丁当</a></li>
+        <li><a href="javascript:;">自导自演 - 周杰伦</a></li>
+        <li><a href="javascript:;">浪漫窝 - 弦子</a></li>
+        <li><a href="javascript:;">流年 - 王菲</a></li>
+    </ul>
+</body>
+
+</html>
+<script>
+    // one
+    // var obtn = document.getElementsByClassName("btn")[0];
+    // var oul = document.getElementsByTagName("ul")[0];
+    // function getStyle(element,attr){
+    //     if(window.getComputedStyle){
+    //         return window.getComputedStyle(element,null)[attr];
+    //     }else{
+    //         return element.currentStyle[attr];
+    //     }
+    // }
+
+
+    // obtn.onclick = function(){
+    //     if(getStyle(oul,"display") == "block"){
+    //         oul.style.display = "none";
+    //     }else{
+    //         oul.style.display = "block";
+    //     }
+    // }
+
+
+    // two
+    // var obtn = document.getElementsByClassName("btn")[0];
+    // var oul = document.getElementsByTagName("ul")[0];
+    // function getStyle(element,attr){
+    //     if(window.getComputedStyle){
+    //         return window.getComputedStyle(element,null)[attr];
+    //     }else{
+    //         return element.currentStyle[attr];
+    //     }
+    // }
+    // obtn.onclick = function(){
+    //     if(getStyle(oul,"display") == "block"){
+    //         oul.style.display = "none";
+    //     }else{
+    //         oul.style.display = "block";
+    //     }
+    // }
+
+
+    // three
+    var obtn = document.getElementsByClassName("btn")[0];
+    var oul = document.getElementsByTagName("ul")[0];
+    function getStyle(element,attr){
+        if(window.getComputedStyle){
+            return window.getComputedStyle(element,null)[attr];
+        }else{
+            return element.currentStyle[attr];
+        }
+    }
+    obtn.onclick = function(){
+        if(getStyle(oul,"display") == "block"){
+            oul.style.display = "none";
+        }else{
+            oul.style.display = "block";
+        }
+    }
+</script>

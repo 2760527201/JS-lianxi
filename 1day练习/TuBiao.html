@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>带图片</title>
+    <style>
+        html,
+        div,
+        body,
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            cursor: pointer;
+            background: url("img/ico.gif") no-repeat 200px 18px;
+            width: 220px;
+            height: 35px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>播放列表...</h3>
+</body>
+
+</html>
+
+<script>
+    // one
+    // var oh3 = document.getElementsByTagName("h3")[0];
+    // oh3.onmouseover = function(){
+    //     this.style.background = "url('img/ico.gif') no-repeat 200px -9px";
+    // };
+    // oh3.onmouseout = function(){
+    //     this.style.background = "url('img/ico.gif') no-repeat 200px 18px";
+    // };
+
+    // two
+    // var oh3 = document.getElementsByTagName("h3")[0];
+    // oh3.onmouseover = function(){
+    //     this.style.background = "url('img/ico.gif') no-repeat 200px -9px";
+    // };
+    // oh3.onmouseout = function(){
+    //     this.style.background = "url('img/ico.gif') no-repeat 200px 18px";
+    // };
+
+    // three
+    // var oh3 = document.getElementsByTagName("h3")[0];
+    // oh3.onmouseover = function(){
+    //     this.style.background = "url('img/ico.gif') no-repeat 200px -9px";
+    // };
+    // oh3.onmouseout = function(){
+    //     this.style.background = "url('img/ico.gif') no-repeat 200px 18px";
+    // };
+        
+    var oh3 = document.getElementsByTagName("h3")[0];
+    var ss = true;
+    oh3.onclick = function(){
+        if(ss == true){
+            this.style.background = "url('img/ico.gif') no-repeat 200px -9px";
+            ss =false;s
+        }else{
+            this.style.background = "url('img/ico.gif') no-repeat 200px 18px";
+            ss = true;
+        }
+    }
+</script>

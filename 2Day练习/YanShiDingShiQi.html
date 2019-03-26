@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>延时定时器</title>
+    <style>
+        .HeZi {
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="HeZi"></div>
+    <button>点击改变</button>
+    <button>停止</button>
+</body>
+
+</html>
+<script>
+    //获取元素
+    var odiv = document.getElementsByClassName("HeZi")[0];
+    var obut1 = document.getElementsByTagName("button")[0];
+    var obut2 = document.getElementsByTagName("button")[1];
+    //定义一个新的变量  保存定时器；
+    var timer = null;
+    //点击按钮1  开始事件
+    obut1.onclick = function () {
+
+        timer = setTimeout(acc, 1500);
+    }
+    //点击按钮2   停止事件
+    obut2.onclick = function(){
+        clearInterval(timer);
+    }
+    //定义一个函数方法来改变
+    function acc() {
+        odiv.style.background = "red";
+        odiv.style.width = "200px";
+    }
+    
+
+
+</script>

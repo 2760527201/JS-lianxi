@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索框文字点击隐藏</title>
+    <style>
+        body,
+        div,
+        form,
+        input {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 258px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #box input {
+            height: 40px;
+            line-height: 40px;
+            border: none;
+            outline: none;
+        }
+
+        #box #search {
+            width: 206px;
+            float: left;
+            background: url("img/left.jpg") no-repeat;
+            color: #ccc;
+            padding-left: 10px;
+        }
+
+        #box #search_btn {
+            width: 42px;
+            height: 40px;
+            float: left;
+            background: url("img/right.jpg") no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <form action="">
+            <input type="text" id="search" value="请输入...">
+            <input type="button" id="search_btn" value="">
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var otext = document.getElementById("search");
+    //焦点获取
+    otext.onfocus = function () {
+        if (this.value == "请输入...") {
+            otext.value = "";
+            otext.style.color = "#333";
+        }
+    }
+
+    //焦点失去
+    otext.onblur = function () {
+        if (this.value == "") {
+            otext.value = "请输入...";
+            otext.style.color = "#ccc";
+
+        }
+    }
+
+</script>

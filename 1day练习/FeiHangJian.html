@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取非行间样式</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="box1"></div>
+</body>
+
+</html>
+
+<script>
+    // one
+    // var odiv = document.getElementById("box");
+    // var odiv1 = document.getElementById("box1");
+    // function getStyle(element,attr){
+    //     if(window.getComputedStyle){
+    //         return window.getComputedStyle(element,null)[attr];
+    //     }else{
+    //         return element.currentStyle[attr];
+    //     }
+    // }
+    // alert(getStyle(odiv,"width"));
+    // alert(getStyle(odiv1,"background"));
+    
+
+    // two
+    // var odiv = document.getElementById("box");
+    // var odiv1 = document.getElementById("box1");
+    // function getStyle(element,attr){
+    //     if(window.getComputedStyle){
+    //         return window.getComputedStyle(element,null)[attr];
+    //     }else{
+    //         return element.currentStyle[attr];
+    //     }
+    // }
+    // alert(getStyle(odiv,"width"));
+    // alert(getStyle(odiv1,"background"));
+
+
+    // three
+    // var odiv = document.getElementById("box");
+    // var odiv1 = document.getElementById("box1");
+    // function getStyle(element,attr){
+    //     if(window.getComputedStyle){
+    //         return window.getComputedStyle(element,null)[attr];
+    //     }else{
+    //         return element.currentStyle[attr];
+    //     }
+    // }
+    // alert(getStyle(odiv,"width"));
+    // alert(getStyle(odiv1,"background"));
+</script>

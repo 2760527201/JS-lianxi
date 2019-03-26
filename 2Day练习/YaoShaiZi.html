@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>摇色子</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 200px;
+        }
+
+        .box {
+            height: 100px;
+            width: 100px;
+            border: 1px solid #ccc;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        button {
+            padding: 6px;
+        }
+
+        .result {
+            color: red;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box"></div>
+    <button id="start">开始</button>
+    <button id="end">结束</button>
+    <p id="result" class="result"></p>
+</body>
+
+</html>
+
+<script>
+    var obox = document.getElementById("box");
+    var obut = document.getElementById("start");
+    var oend = document.getElementById("end");
+    var op = document.getElementById("result");
+    var timer = null;
+    obut.onclick = function(){
+        timer = setInterval(function(){
+            obox.innerHTML = getCa(1,7);
+        },10)
+    }
+    oend.onclick = function(){
+        clearInterval(timer);
+        if(obox.innerHTML > 3){
+            op.innerHTML = "大";
+        }else{
+            op.innerHTML = "小";
+        }
+    }
+
+    function getCa(min,max){
+        var op = max - min;
+        var opSum = Math.floor(Math.random() * op + 1);
+        return opSum;
+    }
+
+</script>

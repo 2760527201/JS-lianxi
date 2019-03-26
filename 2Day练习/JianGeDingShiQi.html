@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>间隔型定时器</title>
+    <style>
+        strong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="开始" id="btn">
+    <input type="button" value="停止" id="clear">
+    <p>result : <strong></strong></p>
+</body>
+
+</html>
+
+<script>
+    var obtn = document.getElementById("btn");
+    var oclear = document.getElementById("clear");
+    var ostrong = document.getElementsByTagName("strong")[0];
+    ostrong.innerHTML = 0;
+    var sum = 0;
+    var tiemr = null;
+    obtn.onclick = function(){
+        tiemr = setInterval(function(){
+            sum++;
+            ostrong.innerHTML = sum;
+            // alert(sum);
+        },100);
+    }
+    oclear.onclick = function(){
+        clearInterval(tiemr);
+    }
+
+</script>
