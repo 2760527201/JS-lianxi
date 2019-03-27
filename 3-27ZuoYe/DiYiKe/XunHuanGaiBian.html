@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>循环改变3个div，变成红色</title>
+    <style>
+        *{margin: 0; padding: 0;text-align: center;}
+        div{width: 300px;height: 100px;background: black;margin: 10px auto;}
+        button{width: 100px;height: 50px;margin: 10px auto;}
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <button>点击变颜色</button>
+</body>
+</html>
+
+<script>
+    window.onload = function(){
+        var odiv = document.getElementsByTagName("div");
+        var obut = document.getElementsByTagName("button")[0];
+        obut.onclick = function(){
+            for(var a = 0;a < odiv.length; a++){
+                odiv[a].style.background = "red";
+            }
+        }
+    }
+
+
+</script>

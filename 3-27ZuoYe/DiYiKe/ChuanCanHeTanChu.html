@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数的传参和弹出</title>
+    <style>
+        div,
+        input,
+        button {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 500px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        div input {
+            text-align: center;
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            border-radius: 5px;
+        }
+
+        div button {
+            text-align: center;
+            width: 80px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" value="北京市" id="inp_1">
+        <br>
+        <input type="text" value="朝阳区" id="inp_2">
+        <br>
+        <button id="btn_">传参</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var oinp1 = document.getElementById("inp_1");
+    var oinp2 = document.getElementById("inp_2");
+    var obtn = document.getElementById("btn_");
+    obtn.onclick = function (){
+        var a = oinp1.value;
+        var b = oinp2.value;
+        alert(a);
+        alert(b);
+    }
+
+</script>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>换肤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #hf_div {
+            width: 100%;
+            height: 50px;
+            /* overflow: hidden; */
+        }
+
+        #hf_div #div_ul {
+            width: 400px;
+            height: 50px;
+            background: #ccc;
+            list-style-type: none;
+            color: black;
+            line-height: 50px;
+            margin: 10px 0 10px 20px;
+        }
+
+        #hf_div #div_ul li {
+            float: left;
+            margin-left: 10px;
+            font-size: 20px;
+            line-height: 50px;
+        }
+
+        #hf_div #div_ul .onav_ul_li {
+            margin: 10px 0 0 10px;
+            width: 30px;
+            height: 30px;
+            border: 2px solid black;
+        }
+
+        #hf_div #div_ul li:nth-child(2) {
+            background-color: blue;
+        }
+
+        #hf_div #div_ul li:nth-child(3) {
+            background-color: red;
+        }
+
+        #hf_div #div_ul li:nth-child(4) {
+            background-color: yellow;
+        }
+
+        #Da_div {
+            margin-top: 10px;
+            width: 100%;
+            height: 500px;
+            float: left;
+        }
+
+        #Da_div #div_left {
+            float: left;
+            width: 80%;
+            height: 500px;
+            border: 5px solid;
+            border-color: blue;
+            margin-left: 20px;
+            padding: 5px 0 0 10px;
+        }
+
+        #Da_div #div_right {
+            float: left;
+            width: 15%;
+            height: 50px;
+            line-height: 50px;
+            margin-left: 5px;
+            border: 5px solid;
+            border-color: blue;
+            padding: 5px 0 0 10px;
+        }
+
+        #footer {
+            width: 99%;
+            height: 100px;
+            margin: 10px auto;
+            background: blue;
+            margin-top: 550px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hf_div">
+        <ul id="div_ul">
+            <li class="onav_li">选择你要点击的颜色：</li>
+            <li class="onav_ul_li"></li>
+            <li class="onav_ul_li"></li>
+            <li class="onav_ul_li"></li>
+        </ul>
+    </div>
+    <div id="Da_div">
+        <div id="div_left">
+            换肤测试
+        </div>
+        <div id="div_right">
+            换肤测试
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+
+</html>
+<script src="js/cookie.js"></script> <!-- 引用cookie -->
+<script>
+    //获取所有的颜色 li 
+    var oli = document.getElementsByClassName("onav_ul_li");
+    // console.log(oli)
+    //获取 左边的盒子 
+    var obor = document.getElementById("div_left");
+    //获取 右边的盒子
+    var obor2 = document.getElementById("div_right");
+    //获取  最底下的盒子
+    var ofot = document.getElementById("footer");
+    //定义一个Skk来保存获取到的Cookie
+    var Skk = null;
+    //遍历  oli 获取每一个oli
+    for (var a = 0; a < oli.length; a++) {
+        //给他一个属性 index 
+        oli[a].index = a;
+        //给他一个点击事件
+        oli[a].onclick = function () {
+            //调用方法
+            getColor(this.index);
+            // 设置 cookie
+            setCookie("userName", this.index, setCookieDate(20));
+        }
+    }
+    //封装改变颜色的方法
+    function getColor(index) {
+        //左边盒子的边框 改变
+        obor.style.borderColor = getArr(oli[index], "background-color");
+        //右边盒子的边框 改变
+        obor2.style.borderColor = getArr(oli[index], "background-color");
+        //地下盒子的背景颜色 改变
+        ofot.style.background = getArr(oli[index], "background");
+    }
+    //封装一个获取非行间样式的方法
+    function getArr(element, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(element, false)[attr];
+        } else {
+            return element.currentStyle[attr];
+        }
+    }
+    //给Skk保存 获取cookies
+    Skk = getCookie("userName");
+    //在Cookies 里面获取 要保存的颜色
+    if(Skk){
+        getColor(Skk);
+    }
+
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>密码提示框</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #nav{
+            width: 300px;
+            height: 50px;
+            margin: 10px auto;
+            cursor: pointer;
+        }
+        #YinCang{
+            width: 300px;
+            height: 40px;
+            border: 2px solid coral;
+            background: blanchedalmond;
+            color: black;
+            padding: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <input type="checkbox">
+        <span>两周内自动登录</span>
+    </div>
+
+    <div id="YinCang">
+        <p>为了您的安全，请不要在网吧或者公用设备上使用此功能。</p>
+    </div>
+</body>
+</html>
+
+<script>
+    var onav = document.getElementById("nav");
+    var oyc = document.getElementById("YinCang");
+    onav.onmousemove = function(){
+        oyc.style.display = "block";
+    }
+    onav.onmouseout = function(){
+        oyc.style.display = "none";
+    }
+
+</script>

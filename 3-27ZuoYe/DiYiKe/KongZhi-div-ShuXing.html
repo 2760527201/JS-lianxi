@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制DIV属性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #Anniu {
+            width: 500px;
+            height: auto;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        #Anniu button {
+            background: #ccc;
+            color: black;
+            padding: 5px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #inner {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Anniu">
+        <button>变宽</button>
+        <button>变高</button>
+        <button>变色</button>
+        <button>隐藏</button>
+        <button>重置</button>
+    </div>
+    <div id="inner"></div>
+</body>
+
+</html>
+
+<script>
+    //封装一个方法  
+    var changeStyle = function (elem, attr, value) {
+        elem.style[attr] = value
+    };
+    //当页面加载完毕后 再加载
+    window.onload = function () {
+        //获取按钮
+        var oBtn = document.getElementsByTagName("button");
+        //获取 内容
+        var oDiv = document.getElementById("inner");
+        //给他一个 数组attr 里面是属性名称
+        var oAtt = ["width", "height", "background", "display", "display"];
+        // 给他一个 数组value 里面是 要改变的属性内容
+        var oVal = ["200px", "200px", "red", "none", "block"];
+        //遍历 
+        for (var i = 0; i < oBtn.length; i++) {
+            oBtn[i].index = i;
+            oBtn[i].onclick = function () {
+                //  用于 下标小一位  最后一位用于重置  重置到最开始状态
+                this.index == oBtn.length - 1 && (oDiv.style.cssText = "");
+                // 调用方法
+                changeStyle(oDiv, oAtt[this.index], oVal[this.index]);
+            }
+        }
+    };
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标移入改变样式，移出回复</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #odiv{width: 500px;height: 500px;margin: 10px auto;background: black;cursor: pointer;}
+        #odiv.add{background: wheat;border: 50px solid red;}
+        #odiv p{color: white;padding: 50px;}
+    </style>
+</head>
+<body>
+    <div id="odiv">
+        <p>鼠标移入改变样式，移出回复</p>
+    </div>
+</body>
+</html>
+
+<script>
+    //显示页面加载完  在运行脚本
+    window.onload = function(){
+        //获取 盒子的元素
+        var odiv = document.getElementById("odiv");
+        //当鼠标触碰盒子时  的方法 
+        odiv.onmousemove = function(){
+            // 给盒子加一个类名   add
+            odiv.className = "add";
+        }
+        //当鼠标离开时  的方法 
+        odiv.onmouseout = function(){
+            //把盒子的claa 清除
+            odiv.className = "";
+        }
+    }
+
+</script>
