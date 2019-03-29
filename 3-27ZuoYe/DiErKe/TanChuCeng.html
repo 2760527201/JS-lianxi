@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹出层</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        button {
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+            font-size: 30px;
+        }
+
+        #Kuang {
+            z-index: 3;
+            display: none;
+            width: 500px;
+            height: 250px;
+            border: 5px solid chartreuse;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        #Kuang .tou {
+            height: 35px;
+            line-height: 35px;
+            background: chocolate;
+            text-align: right;
+            padding-right: 10px;
+            border-bottom: 3px solid chartreuse;
+            cursor: pointer;
+        }
+
+        #Kuang .Con {
+            height: 215px;
+            background: rosybrown;
+        }
+
+        .ZheZhao {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background: #ccc;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <button>弹出</button>
+    <div class="ZheZhao"></div>
+    <div id="Kuang">
+        <p class="tou">关闭</p>
+        <p class="Con"></p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    window.onload = function () {
+        var obtn = document.getElementsByTagName("button")[0];
+        var ozhzh = document.getElementsByClassName("ZheZhao")[0];
+        var oKuang = document.getElementById("Kuang");
+        var otou = document.getElementsByClassName("tou")[0];
+        // console.log(otou)
+        obtn.onclick = function () {
+            if (oKuang.style.display == "block") {
+                oKuang.style.display = "none"
+                ozhzh.style.display = "none";
+            } else {
+                oKuang.style.display = "block";
+                ozhzh.style.display = "block";
+            }
+        }
+        otou.onclick = function () {
+            oKuang.style.display = "none"
+            ozhzh.style.display = "none";
+        }
+    }
+
+
+
+</script>

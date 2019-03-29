@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度输入法</title>
+    <style>
+        *{margin: 0;padding: 0;text-align: center;}
+        button{width: 80px;height: 30px;line-height: 30px;cursor: pointer;}
+        #inner ul{display: none;cursor: pointer;  width: 80px;height: 70px;border: 2px solid #ccc;text-align: center;margin: 0 auto;list-style-type: none;}
+        #inner ul li{border-bottom: 3px solid #000;}
+    </style>
+</head>
+<body>
+    <button>百度输入法</button>
+    <div id="inner">
+        <ul>
+            <li>手写</li>
+            <li>拼音</li>
+            <li>关闭</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var obut = document.getElementsByTagName("button")[0];
+    // console.log(obut)
+    var oul = document.getElementsByTagName("ul")[0];
+    var oli = document.getElementsByTagName("li")[2];
+
+    obut.onclick = function(){
+        if(oul.style.display == "block"){
+            oul.style.display = "none";
+        }else{
+            oul.style.display = "block";
+        }
+    }
+    oli.onclick = function(){
+        oul.style.display = "none";
+    }
+</script>

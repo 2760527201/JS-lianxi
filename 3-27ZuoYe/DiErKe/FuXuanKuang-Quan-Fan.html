@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复选框---全选.全不选和反选</title>
+    <style>
+        div{width: 150px;height: 200px;margin: 0 auto;border: 3px solid black;}
+        p{text-align: center;}
+        ul{list-style-type: none;}
+    </style>
+</head>
+
+<body>
+    <div>
+        <p><input type="checkbox"><span>全选</span>/<span>反选</span></p>
+        <ul>
+            <li><input type="checkbox">选项一</li>
+            <li><input type="checkbox">选项二</li>
+            <li><input type="checkbox">选项三</li>
+            <li><input type="checkbox">选项四</li>
+            <li><input type="checkbox">选项五</li>
+            <li><input type="checkbox">选项六</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    window.onload = function(){
+        var oinp =document.getElementsByTagName("input")[0];
+        var ospan = document.getElementsByTagName("span")[0];
+        var ospan2 = document.getElementsByTagName("span")[1];
+        var oul = document.getElementsByTagName("ul")[0];
+        var oli =oul.getElementsByTagName("input");
+        //全选和全不选
+        oinp.onclick = function(){
+            for(var a = 0;a<oli.length;a++){
+                if(oinp.checked == true){
+                    oli[a].checked = true;
+                    oinp.checked = true;
+                    ospan.innerHTML = "全不选"
+                }else if(oinp.checked == false){
+                    oli[a].checked = false;
+                    oinp.checked = false;
+                    ospan.innerHTML = "全选"
+                }
+            }
+        }
+        //反选
+        ospan2.onclick = function(){
+            for(var a = 0;a<oli.length;a++){
+                if(oli[a].checked == true){
+                    oli[a].checked = false;
+                }else{
+                    oli[a].checked = true;
+                }
+            }
+        }
+    }
+</script>

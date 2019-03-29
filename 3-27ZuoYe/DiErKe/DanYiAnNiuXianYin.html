@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单一按钮显示隐藏</title>
+    <style>
+        *{margin: 0;padding: 0;text-align: center;}
+        h2{cursor: pointer; border: 2px solid white;font-size: 20px;width: 248px;height: 30px;background: #ccc;}
+        ul{cursor: pointer;  display: black;  width: 250px;height: 180px;background: gainsboro;list-style: none;margin: 0 auto;}
+        li{height: 30px;line-height: 30px;}
+        li:hover{background: seashell;text-decoration:underline;}
+    </style>
+</head>
+<body>
+    <div style="border:2px solid #000;width: 253px;margin: 0 auto;">
+    <h2>播放列表...</h2>
+    <ul>
+        <li>玩家之徒 - 蔡依林</li>
+        <li>原谅我就是这样的女生-戴佩妮</li>
+        <li>猜不透-丁当</li>
+        <li>自导自演-周杰伦</li>
+        <li>浪漫窝-弦子</li>
+        <li>流年-王菲</li>
+    </ul>
+</div>
+</body>
+</html>
+
+<script>
+    var oh2 = document.getElementsByTagName("h2")[0];
+    console.log(oh2)
+    var oul = document.getElementsByTagName("ul")[0];
+
+    oh2.onclick = function(){
+        if(oul.style.display == "none"){
+            oul.style.display = "block"
+        }else{
+            oul.style.display = "none"
+        }
+    }
+
+
+</script>
