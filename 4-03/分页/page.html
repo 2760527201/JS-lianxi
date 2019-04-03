@@ -82,7 +82,7 @@
 <body>
 
     <div id="list">
-        <ul>
+        <!-- <ul>
             <li> <img src="https://api.apishop.net/common/dogFamily/queryDogList" alt=""> </li>
             <li class="name">name : 法老王猎犬</li>
             <li class="engName">engName : sadadasdad </li>
@@ -99,7 +99,7 @@
             <li class="name">name : 法老王猎犬3</li>
             <li class="engName">engName : sadadasdad333 </li>
             <li class="price">price : 1000-3000元 </li>
-        </ul>
+        </ul> -->
     </div>
 
 
@@ -133,21 +133,22 @@
         url: "https://api.apishop.net/common/dogFamily/queryDogList",
         method: "get",
         data: {
-            apiKey: "PxPlhAH1fedfa9cb4057fbfb2bc891f76796c58f6ccb4e1",
+            apiKey: "WnhkIrX57aa02034480209e83bb9de863f8ca9cedeac041",
             page: 1,
             pageSize: 10
         },
         success: function (response) {
+            // console.log(JSON.parse(response))
             var data = JSON.parse(response).result.petFamilyList;
             console.log(data)
-            for (var i = 0; i < data.length; i++) {
+            for(var a = 0; a<data.length;a++) {
                 var ul = document.createElement("ul");
-                var str = " <li><img src=" + data[i].coverURL + " alt=></li>\n" +
-                    "        <li class=name>name : " + data[i].name + "</li>\n" +
-                    "        <li class=engName>engName :" + data[i].engName + "</li>\n" +
-                    "        <li class=price>price :" + data[i].price + "</li>";
+                var str = "<li> <img src=" + data[a].coverURL + " alt=> </li>\n"
+                    + "<li class = name > name : " + data[a].name + "</li>\n"
+                    + "<li class=engName>engName : " + data[a].engName + " </li>\n"
+                    + " <li class=price>price : " + data[a].price + " </li>"
                 ul.innerHTML = str;
-                oList.appendChild(ul);
+                olist.appendChild(ul)
             }
         },
         async: true
@@ -166,22 +167,23 @@
                     url: "https://api.apishop.net/common/dogFamily/queryDogList",
                     method: "get",
                     data: {
-                        apiKey: "CvTzerh36642c04757bf8a93b348bcdd3702ec38f3d168f",
+                        apiKey: "WnhkIrX57aa02034480209e83bb9de863f8ca9cedeac041",
                         page: that.index + 1,
                         pageSize: 10
                     },
                     success: function (response) {
+                        olist.innerHTML = "";
                         // console.log(JSON.parse(response))
                         var data = JSON.parse(response).result.petFamilyList;
                         console.log(data)
                         for (var a = 0; a < data.length; a++) {
-                            var ul = document.getElementsByTagName("ul");
-                            var str = "<li> <img src=" + data[a].coveUrl + " alt=> </li>\n"
-                            "<li class = name > name : " + data[a].name + "</li>\n"
-                            "<li class=engName>engName : " + data[a].engName + " </li>\n"
-                            " <li class=price>price : " + data[a].price + " </li>"
-                            ul.innerHtml = str;
-                            olist.appendChild(ul)
+                            var ul = document.createElement("ul");
+                            var str = "<li> <img src=" + data[a].coverURL + " alt=> </li>\n"
+                                + "<li class=name> name : " + data[a].name + "</li>\n"
+                                + "<li class=engName>engName : " + data[a].engName + " </li>\n"
+                                + " <li class=price>price : " + data[a].price + " </li>";
+                            ul.innerHTML = str;
+                            olist.appendChild(ul);
                         }
                     },
                     async: true
