@@ -105,7 +105,7 @@
 
     <div id="page">
         <span id="prev">上一页</span>
-        <a href="javascript:;">1</a>
+        <a href="javascript:;" class="active">1</a>
         <a href="javascript:;">2</a>
         <a href="javascript:;">3</a>
         <a href="javascript:;">4</a>
@@ -133,7 +133,7 @@
         url: "https://api.apishop.net/common/dogFamily/queryDogList",
         method: "get",
         data: {
-            apiKey: "WnhkIrX57aa02034480209e83bb9de863f8ca9cedeac041",
+            apiKey: "CvTzerh36642c04757bf8a93b348bcdd3702ec38f3d168f",
             page: 1,
             pageSize: 10
         },
@@ -162,12 +162,12 @@
             }
             this.className = "active";
             var that = this;
-            if ((this.index + 1) != 1) {
+            // if ((this.index + 1) != 1) {
                 ajax({
                     url: "https://api.apishop.net/common/dogFamily/queryDogList",
                     method: "get",
                     data: {
-                        apiKey: "WnhkIrX57aa02034480209e83bb9de863f8ca9cedeac041",
+                        apiKey: "CvTzerh36642c04757bf8a93b348bcdd3702ec38f3d168f",
                         page: that.index + 1,
                         pageSize: 10
                     },
@@ -190,5 +190,5 @@
                 })
             }
         }
-    }
+    // }
 </script>
