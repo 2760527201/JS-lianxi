@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加减乘除</title>
+</head>
+
+<body>
+    <input type="text" id="inp1">
+    <select name="" id="set">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="take">*</option>
+        <option value="divide">/</option>
+    </select>
+    <input type="text" id="inp2">
+    <button id="but">求值</button>
+    <strong id="str"></strong>
+</body>
+
+</html>
+<script>
+    window.onload = function () {
+        var oinp1 = document.getElementById("inp1");
+        var oinp2 = document.getElementById("inp2");
+        var obut = document.getElementById("but");
+        var ostr = document.getElementById("str");
+        var oset = document.getElementById("set");
+        // var optn = oset.getElementsByTagName("option");
+
+        obut.onclick = function () {
+            a = parseInt(oinp1.value);
+            b = parseInt(oinp2.value);
+            alert(a)
+            alert(b)
+            switch (oset.value) {
+                case "add":
+                    ostr.innerHTML = a + b;
+                    break;
+                case "subtract":
+                    ostr.innerHTML = a - b;
+                    break;
+                case "take":
+                    ostr.innerHTML = a * b;
+                    break;
+                case "divide":
+                    ostr.innerHTML = a / b;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+    }
+</script>

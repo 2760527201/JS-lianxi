@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>幻灯片</title>
+    <style>
+        body,div,ul,li,img{margin: 0; padding: 0;}
+        ul{list-style-type: none;}
+        .banner{
+            width: 790px;
+            border: 1px solid #f60;
+            height: 340px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .banner span{
+            width: 50px;
+            height: 100px;
+            background-color: rgba(25,25,224,0.4);
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            font-size: 40px;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            cursor: pointer;
+        }
+        .banner #prev{
+            left: 30px;
+        }
+        .banner #next{
+            right: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="banner">
+    <ul>
+        <li><img id="pic" src="img/imgeas/1.jpg" alt=""></li>
+        <li><img id="pic" src="img/imgeas/2.jpg" alt=""></li>
+        <li><img id="pic" src="img/imgeas/3.jpg" alt=""></li>
+        <li><img id="pic" src="img/imgeas/4.jpg" alt=""></li>
+    </ul>
+    <span id="prev">&lt;</span>
+    <span id="next">&gt;</span>
+</div>
+</body>
+</html>
+
+<script>
+    var oban = document.getElementById("pic");
+    var opre = document.getElementById("prev");
+    var onext = document.getElementById("next");
+    var sum = 1;
+   
+    onext.onclick = function(){
+        if(sum >= 4){
+            sum = 1;
+        }else{
+            sum++;
+        }
+        oban.src = "img/imgeas/" + sum + ".jpg";
+        console.log(sum)
+    }
+    opre.onclick = function(){
+        
+        if(sum <= 1){
+            sum = 4;
+        }else{
+            sum--;
+        }
+        oban.src = "img/imgeas/" + sum + ".jpg";
+        console.log(sum)
+    }
+</script>

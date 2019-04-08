@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用return来阻止元素默认返回</title>
+</head>
+<body>
+        <a id="bd" href="http://www.baidu.com">点击此链接跳转到百度</a>
+        <a  href="img/pic.jpg">图片1</a>
+</body>
+</html>
+
+<script>
+    var obd = document.getElementById("bd");
+    //用return 来阻止默认跳转
+    obd.onclick = function(){
+        return false;
+    }
+
+</script>

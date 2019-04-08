@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击获取图片</title>
+</head>
+
+<body>
+    <input type="text" id="imgSrc" value="">
+    <button id="btn">改变图片</button>
+    <img id="pic" src="img/img/1.jpg" alt="">
+</body>
+
+</html>
+
+<script>
+    //获取元素
+    var oImgSrc = document.getElementById("imgSrc");
+    var oBtn = document.getElementById("btn");
+    var oPic = document.getElementById("pic");
+    //给改变图片按钮添加点击事件  并且赋给一个方法
+    oBtn.onclick = function () {
+        //设置图片改变的方法  将文本框的value值 赋给 图片的路径
+        var a = "img/img/" + oImgSrc.value  + ".jpg";
+        oPic.src =  a;
+        oImgSrc.value = ""
+    }
+</script>

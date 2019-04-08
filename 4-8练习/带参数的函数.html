@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>带参数的函数</title>
+</head>
+
+<body>
+    <div id="box">
+        <form action="">
+            用户名:<input type="text" id="userName" value="">
+            <br />
+            年　龄:<input type="text" id="age" value="">
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    //在页面提示框里输入内容
+    var user = prompt("请输入您的用户名");
+    var age = prompt("请输入您的年龄");
+    function getUserInfo(a, b) {
+        //获取元素
+        var userName = document.getElementById("userName");
+        var userAge = document.getElementById("age");
+        //将用户输入的信息赋给用户名文本框以及年龄文本框
+        userName.value = a;
+        userAge.value = b;
+    }
+    getUserInfo(user, age);
+
+
+</script>

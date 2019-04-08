@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加文本框属性</title>
+</head>
+<body>
+        <input type="text" id="text" value="hello">
+        <input type="button" id="btn" value="wlord">
+</body>
+</html>
+<script>
+    //获取元素
+    var oText = document.getElementById("text");
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function () {
+        //将按钮的值赋给文本的值
+        oText.value =oText.value + oBtn.value;
+    }
+</script>

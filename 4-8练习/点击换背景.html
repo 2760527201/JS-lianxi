@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击菜单换背景</title>
+    <style>
+        #tu {
+            width: 100%;
+            height: 900px;
+            background: url(img/img/chun.jpg) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tu">
+        <select name="" id="set">
+            <option value="ChunTian">春困</option>
+            <option value="XiaTian">夏热</option>
+            <option value="QiuTian">秋乏</option>
+            <option value="DongTian">冬眠</option>
+        </select>
+    </div>
+</body>
+
+</html>
+<script>
+    var otu = document.getElementById("tu");
+    var oset = document.getElementById("set");
+    oset.onchange = function () {
+        switch (oset.value) {
+            case "ChunTian":
+                otu.style.background = "url(img/img/chun.jpg) no-repeat";
+                break;
+            case "XiaTian":
+                otu.style.background = "url(img/img/xia.jpg) no-repeat";
+                break;
+            case "QiuTian":
+                otu.style.background = "url(img/img/qiu.jpg) no-repeat";
+                break;
+            case "DongTian":
+                otu.style.background = "url(img/img/dong.jpg) no-repeat";
+                break;
+            default:
+                break;
+        }
+    }
+
+</script>

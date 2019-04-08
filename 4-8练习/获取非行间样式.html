@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="background-color: yellow"></div>
+</body>
+</html>
+<script>
+    /*
+//    1.如何获取元素行间样式
+        var oBox = document.getElementById("box");
+        alert(oBox.style.backgroundColor);
+        alert(oBox.style.width);
+      */
+
+//    获取非行间样式
+    var oBox = document.getElementById("box");
+//    alert(oBox.currentStyle["width"]);  //ie浏览器获取非行间样式
+//    alert(getComputedStyle(oBox,false)["height"]);   //chrome，ff获取非行间样式方法
+    //获取非行间样式方法
+    function getStyle(obj,attr) {
+        if(typeof obj.currentStyle == "undefined"){
+            return getComputedStyle(obj,false)[attr];
+        }else{
+            return obj.currentStyle[attr];
+        }
+    }
+</script>

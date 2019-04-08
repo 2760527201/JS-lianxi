@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标点击改变</title>
+    <style>
+        body,
+        div,
+        ul,
+        li,
+        img {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .clearFix:after,
+        .clearFix:before {
+            width: 0;
+            height: 0;
+            clear: both;
+            content: ".";
+            visibility: hidden;
+            display: block;
+        }
+
+        .clearFix {
+            zoom: 1;
+            /*兼容ie67*/
+        }
+
+        #box {
+            width: 360px;
+            height: 70px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            margin: 100px auto;
+            padding-top: 360px;
+            background: url("img/imgshubiao/01big.jpg") no-repeat;
+        }
+
+        #box ul {
+            border-top: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        #box ul li {
+            float: left;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <ul class="clearFix">
+            <li id="product_one"><img src="img/imgshubiao/01.jpg" alt=""></li>
+            <li id="product_two"><img src="img/imgshubiao/02.jpg" alt=""></li>
+            <li id="product_three"><img src="img/imgshubiao/03.jpg" alt=""></li>
+            <li id="product_four"><img src="img/imgshubiao/04.jpg" alt=""></li>
+            <li id="product_five"><img src="img/imgshubiao/05.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+
+</html>
+
+<script>
+    //设置获取元素的封装方法
+    function getId(id) {
+        return document.getElementById(id);
+    }
+    //封装设置背景方法
+    function setBg(id, value) {
+        var obj = getId(id);
+        var oBox = getId("box");
+        obj.onmouseover = function () {
+            oBox.style.background = value + "no-repeat";
+        }
+    }
+    setBg("product_one", "url('img/imgshubiao/01big.jpg')");
+    setBg("product_two", "url('img/imgshubiao/02big.jpg')");
+    setBg("product_three", "url('img/imgshubiao/03big.jpg')");
+    setBg("product_four", "url('img/imgshubiao/04big.jpg')");
+    setBg("product_five", "url('img/imgshubiao/05big.jpg')");
+
+
+</script>

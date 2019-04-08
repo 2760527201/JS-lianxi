@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素的调用方式</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #f60;
+            margin: 100px auto;
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="btn" value="点击">
+    <div id="box"></div>
+</body>
+
+</html>
+
+<script>
+    var obtn = document.getElementById("btn");
+    var obox = document.getElementById("box");
+    
+    obtn.onclick = function(){
+        obox.style.background = "black";
+    }
+
+
+    /*arguments 函数传递进来的参数的集合*/
+    function fn() {
+        return arguments[0] + arguments[1] + arguments[2];
+    }
+    var box = fn(10,20,30);
+    alert(box);
+</script>
