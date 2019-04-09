@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三角形</title>
+    <style>
+        #box{width: 0px;height: 0px;margin: 50px auto;}
+        #box{border: 100px solid #ccc;}
+        #box{border-color: salmon saddlebrown rosybrown yellow;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+
+<script>
+    //实例化的对象
+    var $ = function () {
+        return new Base();
+    };
+
+
+    //构造函数
+    function Base() {
+        this.elements = [];
+        this.getId = function (id) {
+            this.elements.push(document.getElementById(id));
+            return this;
+        }
+    }
+    //给原型上添加属性和方法
+    Base.prototype.click = function (fn) {
+       for(var i=0;i<this.elements.length;i++){
+           this.elements[i].onclick = fn;
+       }
+       return this;
+    }
+    $().getId("box").click(function () {
+        alert("111")
+    })
+
+
+
+</script>

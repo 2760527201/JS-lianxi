@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>封装</title>
+    <style>
+        #box{width: 100px;height: 100px;background: red;}
+    </style>
+</head>
+<body>
+    <div id="box">第一个盒子</div>
+    <div id="box1">第二个盒子</div>
+    <div id="box2">第三个盒子</div>
+    <p>段落</p>
+    <p>段落</p>
+    <p class="dp_">段落</p>
+    <input type="text" name="inp_">
+</body>
+</html>
+<script src="js/FengZhuang.js"></script>
+<script>
+    $().getId("box").click(function(){
+        this.style.background = "yellow";
+    });
+    $().getId("box1").click(function(){
+        this.style.background = "yellow";
+    });
+    $().getTag("p").click(function(){
+        alert("这是TagName")
+    });
+    $().getClass("dp_").click(function(){
+        alert("这是ClassName啊")
+    }).html("变换123");
+    $().getName("inp_").click(function(){
+        this.value = "这里添加内容（请输入...）"
+    });
+</script>
