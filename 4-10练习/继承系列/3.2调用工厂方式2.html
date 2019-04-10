@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用工厂方式来构造对象</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    //构造函数
+    function Arr(name,age,sex){
+        var att = new Object();
+
+        //添加属性内容
+        att.name = name;
+        att.age = age;
+        att.sex = sex;
+        //方法
+        att.show = function(){
+            alert("name：" +this.name + "..." + "age: " + this.age);
+        }
+        att.showSex = new Function('alert("性别："+this.sex)');//同上
+        //返回函数
+        return att;
+    }
+    //创建对象 添加内容
+    var a1 = Arr("jack",20,'nan');
+    var a2 = Arr("rose",22,'nv');
+    //调用
+    a1.show()
+    a1.showSex()
+    a2.show()
+    a2.showSex()
+
+    
+</script>

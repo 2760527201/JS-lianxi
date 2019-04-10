@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS中的this以及全局对象window</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    //定义一个全局函数
+    function show(){ 
+        alert(this)
+    }
+    show() //弹出 object window  说明这里的this代表全局对象window
+    
+
+    // 为window定义一个show方法
+    window.show = function(){
+        alert(this);
+    }
+    window.show()//此处的show()函数为一个全局函数，调用show()，alert(this)弹出来的是window对象，说明全局函数属于window。
+
+    //显示数组
+    var arr = [1,2,3,,5]
+    arr.att = function(){  //this即表示当前函数的调用者是谁
+        console.log(this)
+    }
+    arr.att()  //打印出数组的内容 1 2 3  5  
+
+</script>

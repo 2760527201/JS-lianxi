@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>继承</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    //父类
+    function Laoda(){
+        this.money = "2万"
+    }
+    //二级父类
+    function Laoer(){
+        this.fanzi = "3套"
+    }
+    //子类
+    function Laosan(){
+        this.run = function(){
+            return this.money + "..." + this.fanzi;
+        }
+    }
+    //二级父类继承父类的东西   通过原型
+    Laoer.prototype = new Laoda();
+    ////实例化  构建的二级父类
+    var le = new Laoer();
+    console.log(le.money)
+    //子类继承二级父类的东西   通过原型
+    Laosan.prototype = new Laoer();
+    //实例化  构建的子类
+    var ls = new Laosan();
+    console.log(ls.money)
+    console.log(ls.run())
+</script>
