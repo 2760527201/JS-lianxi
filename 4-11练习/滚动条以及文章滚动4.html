@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动条</title>
+    <style>
+        html,
+        body,
+        div,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 550px;
+            overflow: hidden;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+        }
+
+        #wrap #container {
+            float: left;
+            height: 550px;
+            overflow: hidden;
+            width: 480px;
+            position: relative;
+        }
+
+        #wrap #article {
+            padding: 20px;
+            position: absolute;
+            top: 0;
+        }
+
+        #wrap #article p {
+            text-indent: 2em;
+            padding: 10px;
+        }
+
+        #scroll {
+            float: right;
+            height: 500px;
+            width: 50px;
+            position: relative;
+            border-left: 1px solid #ccc;
+            background: #eee;
+        }
+
+        #scroll #box {
+            height: 50px;
+            width: 50px;
+            background: yellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="container">
+            <div id="article">
+                <p>随着信息时代的不断发展，计算机被越来越广泛的运用到人们的生活之中。</p>
+                <p>虽然计算机的出现为人们的生活带来了许多方便，但其中却存在着巨大的安全隐患，如病毒。
+                    黑客以及网络存在的漏洞等带来的安全隐患都是不容忽视的。</p>
+                <p>数据时代背景下的计算机网络安全为出发点，着重探讨大数据时代背景下计算机网络安全的防范对策。</p>
+                <p>数据时代的到来，对计算机网络的发展具有非常重要的意义，它一方面给计算机网络的发展带来了巨大的机遇，另一方面也带来了一定的挑战。</p>
+                <p>阐述了大数据背景下计算机网络信息安全现状及防护措施，旨在进一步提高计算机网络信息安全，为广大用户提供更为安全的网络使用环境。</p>
+                <p>随着信息时代的不断发展，计算机被越来越广泛的运用到人们的生活之中。</p>
+                <p>虽然计算机的出现为人们的生活带来了许多方便，但其中却存在着巨大的安全隐患，如病毒。
+                    黑客以及网络存在的漏洞等带来的安全隐患都是不容忽视的。</p>
+                <p>数据时代背景下的计算机网络安全为出发点，着重探讨大数据时代背景下计算机网络安全的防范对策。</p>
+                <p>数据时代的到来，对计算机网络的发展具有非常重要的意义，它一方面给计算机网络的发展带来了巨大的机遇，另一方面也带来了一定的挑战。</p>
+                <p>阐述了大数据背景下计算机网络信息安全现状及防护措施，旨在进一步提高计算机网络信息安全，为广大用户提供更为安全的网络使用环境。</p>
+                <p>随着信息时代的不断发展，计算机被越来越广泛的运用到人们的生活之中。</p>
+                <p>虽然计算机的出现为人们的生活带来了许多方便，但其中却存在着巨大的安全隐患，如病毒。
+                    黑客以及网络存在的漏洞等带来的安全隐患都是不容忽视的。</p>
+                <p>数据时代背景下的计算机网络安全为出发点，着重探讨大数据时代背景下计算机网络安全的防范对策。</p>
+                <p>数据时代的到来，对计算机网络的发展具有非常重要的意义，它一方面给计算机网络的发展带来了巨大的机遇，另一方面也带来了一定的挑战。</p>
+                <p>阐述了大数据背景下计算机网络信息安全现状及防护措施，旨在进一步提高计算机网络信息安全，为广大用户提供更为安全的网络使用环境。</p>
+            </div>
+        </div>
+        <div id="scroll" >
+            <div id="box"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var obox = document.getElementById("box");
+    var owrap = document.getElementById("wrap");
+    var oscro = document.getElementById("scroll");
+    var oart = document.getElementById("article");
+
+    //滚动事件兼容   判断是不是火狐 如果是火狐用DOMMouseScroll
+    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+    //事件绑定及其兼容问题
+    function addEvent(obj,type,fn){
+        if(obj.addEventListener){
+            obj.addEventListener(type,fn);
+        }else if(obj.attachEvent){
+            obj.attachEvent('on'+type,fn) 
+
+        }
+    }
+    //滚动条滚动方向兼容
+    function getWD(e) {
+        var e = e || window.event;
+        if(e.wheelDelta){
+            return e.wheelDelta;
+        }else{
+            return -e.detail * 40;  //deleat表示鼠标的滚动  在火狐里使用
+        }
+    }
+
+    var a = 0;
+    var b = 0;
+    //文本框高度-大盒子的高度  = 可滚动的高度大小
+    var c = (oart.offsetHeight - owrap.offsetHeight)/45; 
+    addEvent(oscro,mousewheelevt,function(e){
+        //判断鼠标获得的值  从而添加事件**
+        if(getWD(e) < 0){
+            a+=10;
+            if(a > 450){
+                a = 450;
+            }
+            b += c;
+            if(b > oart.offsetHeight - owrap.offsetHeight){
+                b = oart.offsetHeight - owrap.offsetHeight;
+            }
+            oart.style.top = -b + "px";
+            obox.style.top = a + "px";
+        }else{
+            a -= 10;
+            if(a < 0){
+                a = 0;
+            }
+            b -= c;
+            if(b <　0){
+                b = 0;
+            }
+            oart.style.top = -b + "px";
+            obox.style.top = a + "px";
+        }
+    })
+
+    // function getHeight(){
+    //     var h= oscro.clientHeight || obox.clientHeight;
+    //     return h;
+    // }
+    function getHeight(){
+        var h= document.documentElement.clientHeight || document.body.clientHeight;
+        return h;
+    }
+    //鼠标按下
+    obox.onmousedown = function (event) {
+        var e = event || window.event;
+        //点击的坐标距离盒子本身的距离
+        var disY = e.clientY - obox.offsetTop;
+        document.onmousemove = function (e) {
+            var e = e || window.event;
+            var t = e.clientY - disY;
+            if(t <= 0){
+                t = 0;
+            }
+            if(t > getHeight() - obox.offsetHeight){
+                t = getHeight() - obox.offsetHeight;
+            }
+            obox.style.top = t + "px";
+            oart.style.top = -t + "px"; 
+        }
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+</script>

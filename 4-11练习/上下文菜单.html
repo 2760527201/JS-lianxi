@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上下文菜单</title>
+    <style>
+        html,
+        body,
+        div,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 250px;
+            border: 1px solid #ccc;
+            display: none;
+            border-bottom: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            list-style-type: none;
+        }
+
+        ul li {
+            border-bottom: 1px solid #ccc;
+            height: 38px;
+            cursor: pointer;
+            line-height: 38px;
+            padding-left: 25px;
+        }
+
+        ul li:hover {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>查看源代码</li>
+        <li>复制</li>
+        <li>粘贴</li>
+        <li>帮助</li>
+        <li>关闭</li>
+    </ul>
+</body>
+
+</html>
+
+<script>
+    //判断阻止元素的默认行为以及浏览器兼容问题
+    function ZuZhi(e){
+        var e = e || window.event;
+        if(e.preventDefault){
+            e.preventDefault();//高级浏览器阻止
+        }else{
+            e.returnValue = false;  //处理IE兼容问题
+        }
+    }
+
+    //阻止事件冒泡以及浏览器兼容问题
+    function MaoPao(e){
+        var e = e || window.event;
+        if(e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            e.cancelBubble = true;
+        }
+    }
+
+    var oul = document.getElementsByTagName("ul")[0];
+    //获取鼠标右键点击时的X,Y坐标 clientX 和 clientY
+    //在全局点击鼠标右键触发事件
+    document.oncontextmenu = function(e){
+        //兼容问题(阻止鼠标右键点击的默认行为)
+        ZuZhi(e);
+        //ul显示
+        oul.style.display = "block";
+        var ax = e.clientX;
+        var ay = e.clientY;
+        oul.style.left = ax + "px";
+        oul.style.top = ay + "px";
+        // alert("321")
+    }
+    var oli = oul.getElementsByTagName("li");
+    //li的点击
+    for(var i =0;i<oli.length;i++){
+        oli[i].onclick = function(){
+            // alert("123")
+            oul.style.display = "none";
+            MaoPao(e)
+        }
+    }
+    // document.onclick = function () {
+    //     alert("222")
+    //     ul.style.display = "none";
+    // }
+
+</script>

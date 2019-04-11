@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>卸载时间</title>
+</head>
+<body>
+    <a href="https://www.baidu.com">百度</a>
+</body>
+</html>
+
+<script>
+     //判断阻止元素的默认行为以及浏览器兼容问题
+     function ZuZhi(e){
+        var e = e || window.event;
+        if(e.preventDefault){
+            e.preventDefault();//高级浏览器阻止
+        }else{
+            e.returnValue = false;  //处理IE兼容问题
+        }
+    }
+
+    // window.onbeforeunload = function (e) {
+    //     ZuZhi(e)
+    //     alert("111")
+    // }
+
+</script>

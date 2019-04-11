@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    html,
+        body,
+        div,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 550px;
+            overflow: hidden;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+        }
+
+        #wrap #container {
+            float: left;
+            height: 550px;
+            overflow: hidden;
+            width: 480px;
+            position: relative;
+        }
+
+        #wrap #article {
+            padding: 20px;
+            position: absolute;
+            top: 0;
+        }
+
+        #wrap #article p {
+            text-indent: 2em;
+            padding: 10px;
+        }
+
+        #scroll {
+            float: right;
+            height: 500px;
+            width: 50px;
+            position: relative;
+            border-left: 1px solid #ccc;
+            background: #eee;
+        }
+
+        #scroll #box {
+            height: 50px;
+            width: 50px;
+            background: yellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+        <div id="wrap">
+                <div id="container">
+                    <div id="article">
+                        <p>随着信息时代的不断发展，计算机被越来越广泛的运用到人们的生活之中。</p>
+                        <p>虽然计算机的出现为人们的生活带来了许多方便，但其中却存在着巨大的安全隐患，如病毒。
+                            黑客以及网络存在的漏洞等带来的安全隐患都是不容忽视的。</p>
+                        <p>数据时代背景下的计算机网络安全为出发点，着重探讨大数据时代背景下计算机网络安全的防范对策。</p>
+                        <p>数据时代的到来，对计算机网络的发展具有非常重要的意义，它一方面给计算机网络的发展带来了巨大的机遇，另一方面也带来了一定的挑战。</p>
+                        <p>阐述了大数据背景下计算机网络信息安全现状及防护措施，旨在进一步提高计算机网络信息安全，为广大用户提供更为安全的网络使用环境。</p>
+                        <p>随着信息时代的不断发展，计算机被越来越广泛的运用到人们的生活之中。</p>
+                        <p>虽然计算机的出现为人们的生活带来了许多方便，但其中却存在着巨大的安全隐患，如病毒。
+                            黑客以及网络存在的漏洞等带来的安全隐患都是不容忽视的。</p>
+                        <p>数据时代背景下的计算机网络安全为出发点，着重探讨大数据时代背景下计算机网络安全的防范对策。</p>
+                        <p>数据时代的到来，对计算机网络的发展具有非常重要的意义，它一方面给计算机网络的发展带来了巨大的机遇，另一方面也带来了一定的挑战。</p>
+                        <p>阐述了大数据背景下计算机网络信息安全现状及防护措施，旨在进一步提高计算机网络信息安全，为广大用户提供更为安全的网络使用环境。</p>
+                        <p>随着信息时代的不断发展，计算机被越来越广泛的运用到人们的生活之中。</p>
+                        <p>虽然计算机的出现为人们的生活带来了许多方便，但其中却存在着巨大的安全隐患，如病毒。
+                            黑客以及网络存在的漏洞等带来的安全隐患都是不容忽视的。</p>
+                        <p>数据时代背景下的计算机网络安全为出发点，着重探讨大数据时代背景下计算机网络安全的防范对策。</p>
+                        <p>数据时代的到来，对计算机网络的发展具有非常重要的意义，它一方面给计算机网络的发展带来了巨大的机遇，另一方面也带来了一定的挑战。</p>
+                        <p>阐述了大数据背景下计算机网络信息安全现状及防护措施，旨在进一步提高计算机网络信息安全，为广大用户提供更为安全的网络使用环境。</p>
+                    </div>
+                </div>
+                <div id="scroll">
+                    <div id="box"></div>
+                </div>
+            </div>
+    
+    <script type="text/javascript">
+        var owrap = document.getElementById("wrap");
+        var spp = document.getElementById("article");
+        var gdt = document.getElementById("box");//obox
+        var toop = 0;
+        var aa = spp.offsetHeight - owrap.offsetHeight;
+        var bb = owrap.offsetHeight - gdt.offsetHeight ;
+        gdt.onmousedown = function (event) {
+            var rey = event.clientY;
+            console.log(rey);
+            var tooop = toop - rey;
+            document.onmousemove = function (e) {
+                yY = e.clientY;
+                toop = yY + tooop;
+                if (toop <= 0) {
+                    gdt.style.top = "0px";
+                }
+                else if (toop > 450) {
+                    gdt.style.top = "450px";
+                }
+                else {
+                    gdt.style.top = toop + "px";
+                    spp.style.top = -(aa) / (bb) * toop+ "px";
+                }
+            }
+        }
+        //鼠标抬起  离开时
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浏览器检测</title>
+</head>
+<body>
+    <p>检测1</p>
+    <p>检测2</p>
+    <p>检测3</p>
+    <p>检测4</p>
+    <p>检测5</p>
+    <p>检测6</p>
+    <p>检测7</p>
+    <p>检测8</p>
+    <p>检测9</p>
+    <p>检测10</p>
+    <p>检测11</p>
+    <p>检测12</p>
+    <p>检测13</p>
+    <p>检测14</p>
+    <p>检测15</p>
+    <p>检测16</p>
+    <p>检测17</p>
+    <p>检测18</p>
+    <p>检测19</p>
+    <p>检测20</p>
+    <p>检测21</p>
+    <p>检测22</p>
+    <p>检测23</p>
+    <p>检测24</p>
+    <p>检测25</p>
+    <p>检测26</p>
+    <p>检测27</p>
+    <p>检测28</p>
+    <p>检测29</p>
+    <p>检测30</p>
+    <p>检测31</p>
+    <p>检测32</p>
+    <p>检测33</p>
+    <p>检测34</p>
+    <p>检测35</p>
+    <p>检测36</p>
+    <p>检测37</p>
+    <p>检测38</p>
+    <p>检测39</p>
+    <p>检测40</p>
+    <p>检测41</p>
+    <p>检测42</p>
+    <p>检测43</p>
+    <p>检测44</p>
+    <p>检测45</p>
+    <p>检测46</p>
+    <p>检测47</p>
+    <p>检测48</p>
+    <p>检测49</p>
+    <p>检测50</p>
+    <p>检测51</p>
+    <p>检测52</p>
+    <p>检测53</p>
+    <p>检测54</p>
+    <p>检测55</p>
+    <p>检测56</p>
+    <p>检测57</p>
+    <p>检测58</p>
+    <p>检测59</p>
+    <p>检测60</p>
+    <p>检测61</p>
+    <p>检测62</p>
+    <p>检测63</p>
+    <p>检测64</p>
+    <p>检测65</p>
+    <p>检测66</p>
+    <p>检测67</p>
+    <p>检测68</p>
+    <p>检测69</p>
+    <p>检测70</p>
+    <p>检测71</p>
+    <p>检测72</p>
+    <p>检测73</p>
+    <p>检测74</p>
+    <p>检测75</p>
+    <p>检测76</p>
+    <p>检测77</p>
+    <p>检测78</p>
+    <p>检测79</p>
+    <p>检测80</p>
+    <p>检测81</p>
+    <p>检测82</p>
+    <p>检测83</p>
+    <p>检测84</p>
+    <p>检测85</p>
+    <p>检测86</p>
+    <p>检测87</p>
+    <p>检测88</p>
+    <p>检测89</p>
+    <p>检测90</p>
+    <p>检测91</p>
+    <p>检测92</p>
+    <p>检测93</p>
+    <p>检测94</p>
+    <p>检测95</p>
+    <p>检测96</p>
+    <p>检测97</p>
+    <p>检测98</p>
+    <p>检测99</p>
+    <p>检测100</p>
+</body>
+</html>
+
+<script>
+     //事件绑定及其兼容问题
+     function addEvent(obj,type,fn){
+        if(obj.addEventListener){
+            obj.addEventListener(type,fn);
+        }else if(obj.attachEvent){
+            obj.attachEvent('on'+type,fn) 
+
+        }
+    }
+    //判断是不是火狐 如果是火狐用DOMMouseScroll
+    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+
+    
+    //事件监听，滚动条滚动方向兼容   判断滚轮是向上还是向下       以及火狐滚轮的距离
+    function getWD(e) {
+        var e = e || window.event;
+        if(e.wheelDelta){
+            return e.wheelDelta;
+        }else{
+            return -e.detail * 40; //deleat表示鼠标的滚动  在火狐里使用
+        }
+    }
+    //获取滚轮的值  120向上  -120向下
+    addEvent(window,mousewheelevt,function (e) {
+        alert(getWD(e))
+    })
+
+
+
+
+    
+</script>

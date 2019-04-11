@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        #contain{
+            position: relative;
+            width: 100px;
+            height: 300px;
+            border: 1px solid #000000;
+            overflow: hidden;
+        }
+        #gdt{
+            position: absolute;
+            width: 10px;
+            height: 75px;
+            background-color:#000000;
+            top: 0px;
+            right: 0px;
+        }
+        #spp{
+            position: absolute;
+            height: 1200px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contain">
+        <div id="spp">
+            <div style="width: 100px;height: 200px;background-color: yellow;"></div>
+            <div style="width: 100px;height: 200px;background-color: blue;"></div>
+            <div style="width: 100px;height: 200px;background-color: red;"></div>
+            <div style="width: 100px;height: 200px;background-color: yellow;"></div>
+            <div style="width: 100px;height: 200px;background-color: blue;"></div>
+            <div style="width: 100px;height: 200px;background-color: red;"></div>
+        </div>
+        <div id="gdt"></div>
+    </div>
+<script type="text/javascript">
+    var spp=document.getElementById("spp");
+    var gdt=document.getElementById("gdt");
+    var toop=0;
+    gdt.onmousedown=function(event){
+        var rey=event.clientY;
+        console.log(rey);
+        var tooop=toop-rey;
+            document.onmousemove = function(e){
+                yY=e.clientY;
+                toop=yY+tooop;
+                if (toop<=0) {
+                    gdt.style.top="0px";
+                }
+                else if (toop>=225) {
+                    gdt.style.top="225px";
+                }
+                else{
+                    gdt.style.top=toop+"px";
+                    spp.style.top=-(1200-300)/(300-75)*toop+"px";
+                }
+            }
+    }
+    document.onmouseup=function(){
+    document.onmousemove=null;
+  }
+</script>
+</body>
+</html>

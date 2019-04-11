@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>自定义滚轮事件</title> 
+    <style type="text/css"> 
+      *{ 
+        padding: 0; 
+        margin: 0; 
+      } 
+      #wrap{ 
+        height: 500px; 
+        width: 300px; 
+        position: relative; 
+        /*超出隐藏*/ 
+        overflow: hidden; 
+        margin: 200px auto 0; 
+        border: 3px solid black; 
+      } 
+      #content{ 
+        width: 300px; 
+        /*不需要设置高度，可被图片撑开*/ 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        border: 1px solid red; 
+      } 
+      #content > div{ 
+        width: 294px; 
+        /*去除图片间的间隙*/ 
+        vertical-align: top; 
+        height: 500px; 
+        border: 1px solid red; 
+        text-align: center; 
+        font-size: 100px; 
+        line-height: 500px; 
+      } 
+      #sliderWrap{ 
+        height:100% ; 
+        width:16px ; 
+        background-color: greenyellow; 
+        position: absolute; 
+        right: 0; 
+        top: 0; 
+      } 
+      #slider{ 
+        width: 10px; 
+        height: 50px; 
+        background-color: blue; 
+        position: absolute; 
+        left: 3px; 
+        top: 0px; 
+        border-radius: 10px; 
+      } 
+    </style> 
+  </head> 
+  <body> 
+    <div id="wrap"> 
+      <div id="content"> 
+        <div>1</div> 
+        <div>2</div> 
+        <div>3</div> 
+        <div>4</div> 
+        <div>5</div> 
+      </div> 
+      <!--右侧滚动条部分-->
+      <div id="sliderWrap"> 
+        <div id="slider"> 
+            
+        </div> 
+      </div> 
+    </div> 
+  </body> 
+  <script type="text/javascript"> 
+    var wrapDiv = document.getElementById("wrap"); 
+    var contentDiv = document.getElementById("content"); 
+    var sliderWrap = document.getElementById("sliderWrap"); 
+    var slider = document.getElementById("slider"); 
+    //设置比例 
+    //clientHeight - 不包括border 
+    var scale = wrapDiv.clientHeight / contentDiv.clientHeight; 
+    //设置滑块的高度 
+    var h1 = sliderWrap.clientHeight * scale; 
+    //为了合理设置高度，设置滑块的最小高度 
+    if (h1 < 50) { 
+      h1 = 50; 
+    }else if (scale >= 1) { 
+      //说明当前内容能过完全显示在可视区域内，不需要滚动条 
+      sliderWrap.style.display = "none"; 
+    } 
+    //设置滑块的高度 
+    slider.style.height = h1 +"px"; 
+    //设置y轴的增量 
+    var y = 0; 
+    //为wrap添加滚轮事件 
+    wrapDiv.onmousewheel = function(e){ 
+      var event1 = event || e 
+      if (event.wheelDelta < 0) { 
+        //滑动条向下滚动 
+        y += 10; 
+      }else if (event.wheelDelta > 0) { 
+        //滑动条向上滚动 
+        y -= 10; 
+      } 
+      //y变化时说明在滚动，此时使滚动条发生滚动，以及设置content内容部分滚动 
+      //判断极端情况，滑块不能划出屏幕 
+      if (y <= 0) { 
+        //滑块最多滑到顶部 
+        y = 0; 
+      } 
+      if(y >= sliderWrap.clientHeight - slider.clientHeight){ 
+        //滑块最多滑到最底部 
+        y = sliderWrap.clientHeight - slider.clientHeight; 
+      } 
+      //更新滑块的位置 
+      slider.style.top = y +"px"; 
+      scale = wrapDiv.clientHeight / contentDiv.clientHeight; 
+      contentDiv.style.top = - y / scale +"px"; 
+    } 
+  </script> 
+</html> 
