@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动条事件</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>加载数据1</li>
+        <li>加载数据2</li>
+        <li>加载数据3</li>
+        <li>加载数据4</li>
+        <li>加载数据5</li>
+        <li>加载数据6</li>
+        <li>加载数据7</li>
+        <li>加载数据8</li>
+        <li>加载数据9</li>
+        <li>加载数据10</li>
+        <li>加载数据11</li>
+        <li>加载数据12</li>
+        <li>加载数据13</li>
+        <li>加载数据14</li>
+        <li>加载数据15</li>
+        <li>加载数据16</li>
+        <li>加载数据17</li>
+        <li>加载数据18</li>
+        <li>加载数据19</li>
+        <li>加载数据20</li>
+        <li>加载数据21</li>
+        <li>加载数据22</li>
+        <li>加载数据23</li>
+        <li>加载数据24</li>
+        <li>加载数据25</li>
+        <li>加载数据26</li>
+        <li>加载数据27</li>
+        <li>加载数据28</li>
+        <li>加载数据29</li>
+        <li>加载数据30</li>
+        <li>加载数据31</li>
+        <li>加载数据32</li>
+        <li>加载数据33</li>
+        <li>加载数据34</li>
+        <li>加载数据35</li>
+        <li>加载数据36</li>
+        <li>加载数据37</li>
+        <li>加载数据38</li>
+        <li>加载数据39</li>
+        <li>加载数据40</li>
+        <li>加载数据41</li>
+        <li>加载数据42</li>
+        <li>加载数据43</li>
+        <li>加载数据44</li>
+        <li>加载数据45</li>
+        <li>加载数据46</li>
+        <li>加载数据47</li>
+        <li>加载数据48</li>
+        <li>加载数据49</li>
+        <li>加载数据50</li>
+        <li>加载数据51</li>
+        <li>加载数据52</li>
+        <li>加载数据53</li>
+        <li>加载数据54</li>
+        <li>加载数据55</li>
+        <li>加载数据56</li>
+        <li>加载数据57</li>
+        <li>加载数据58</li>
+        <li>加载数据59</li>
+        <li>加载数据60</li>
+        <li>加载数据61</li>
+        <li>加载数据62</li>
+        <li>加载数据63</li>
+        <li>加载数据64</li>
+        <li>加载数据65</li>
+        <li>加载数据66</li>
+        <li>加载数据67</li>
+        <li>加载数据68</li>
+        <li>加载数据69</li>
+        <li>加载数据70</li>
+        <li>加载数据71</li>
+        <li>加载数据72</li>
+        <li>加载数据73</li>
+        <li>加载数据74</li>
+        <li>加载数据75</li>
+        <li>加载数据76</li>
+        <li>加载数据77</li>
+        <li>加载数据78</li>
+        <li>加载数据79</li>
+        <li>加载数据80</li>
+        <li>加载数据81</li>
+        <li>加载数据82</li>
+        <li>加载数据83</li>
+        <li>加载数据84</li>
+        <li>加载数据85</li>
+        <li>加载数据86</li>
+        <li>加载数据87</li>
+        <li>加载数据88</li>
+        <li>加载数据89</li>
+        <li>加载数据90</li>
+        <li>加载数据91</li>
+        <li>加载数据92</li>
+        <li>加载数据93</li>
+        <li>加载数据94</li>
+        <li>加载数据95</li>
+        <li>加载数据96</li>
+        <li>加载数据97</li>
+        <li>加载数据98</li>
+        <li>加载数据99</li>
+        <li>加载数据100</li>
+    </ul>
+</body>
+
+</html>
+
+<script>
+    //获取可视区域的宽度和高度
+    var view = {
+        //获取可视区域的高度
+        getProHeight: function () {
+            return document.documentElement.clientHeight || document.body.clientHeight;
+        },
+        //获取可视区域的宽度
+        getProWidth: function () {
+            return document.documentElement.clientWidth || document.body.clientWidth;
+        }
+    }
+    //获取滚动条的滚动的距离
+    var scroll = {
+        //获取鼠标滚轮条   距上
+        getTop: function () {
+            return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        },
+        //获取鼠标滚轮条   距左
+        getLeft: function () {
+            return document.documentElement.scrollLeft || window.pageXOffset || document.body.scrollLeft;
+        },
+        //获取滚动条可滚动的最大的高
+        getHeight: function () {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        },
+        //获取鼠标滚轮条最大的宽
+        getWidth: function () {
+            return Math.max(document.body.scrollWidth, document.documentElement.scrollWidth);
+        },
+        //设置鼠标 距上的大小
+        setTop: function (value) {
+            if (document.documentElement.scrollTop) {
+                document.documentElement.scrollTop = value;
+            } else if (window.pageYOffset) {
+                window.pageYOffset = value;
+            } else if (document.body.scrollTop) {
+                document.body.scrollTop = value;
+            }
+        },
+        //设置鼠标 距左的大小
+        setLeft: function (value) {
+            if (document.documentElement.scrollLeft) {
+                document.documentElement.scrollLeft = value;
+            } else if (window.pageXOffset) {
+                window.pageXOffset = value;
+            } else if (document.body.scrollLeft) {
+                document.body.scrollLeft = value;
+            }
+        }
+    }
+
+    var olist = document.getElementById("list");
+    var count = 100;
+    var num = 10;
+    window.onscroll = function () {
+        console.log(scroll.getTop())
+        if (scroll.getTop() + view.getProHeight() >= scroll.getHeight()) {
+            
+            if(num <= count){
+                alert(num)
+                num = num + 10;
+                for(var i = 0; i<6;i++){
+                    var oli = document.createElement("li");
+                    oli.innerHTML = "新加载......";
+                    olist.appendChild(oli);
+                }
+            }
+        }
+    } 
+</script>

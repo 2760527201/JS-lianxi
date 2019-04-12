@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动条事件</title>
+    <style>
+        html,
+        body {
+            height: 2000px;
+        }
+
+        #app {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: none;
+            background: palegreen;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">返回顶部</div>
+</body>
+
+</html>
+
+<script>
+    var scroll = {
+        getTop: function () {
+            return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        },
+        getLeft: function () {
+            return document.documentElement.scrollLeft || window.pageXOffset || document.body.scrollLeft;
+        },
+        setTop: function (value) {
+            if (document.documentElement.scrollTop) {
+                document.documentElement.scrollTop = value;
+            } else if (window.pageYOffset) {
+                window.pageYOffset = value;
+            } else if (document.body.scrollTop) {
+                document.body.scrollTop = value;
+            }
+        }
+    }
+
+    var oapp = document.getElementById("app");
+    window.onscroll = function () {
+        if (scroll.getTop() > 200) {
+            oapp.style.display = "block";
+        } else {
+            oapp.style.display = "none"
+        }
+    }
+
+    oapp.onclick = function () {
+        var aa = scroll.getTop();
+        setInterval(
+            function () {
+                if (aa > 0) {
+                    aa -= 100;
+                    scroll.setTop(aa)
+                }
+            }, 100)
+    }
+
+</script>
